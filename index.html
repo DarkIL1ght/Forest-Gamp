@@ -7,36 +7,60 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
             margin: 0;
+            height: 100vh; /* Задаем полную высоту экрана */
+            display: flex; /* Используем Flexbox для выравнивания */
+            justify-content: center; /* Выравнивание по горизонтали */
+            align-items: center; /* Выравнивание по вертикали */
+            overflow: hidden;
         }
+
+        /* Слой для фона с блюром */
+        .background {
+            position: fixed; /* Закрепляем фон */
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('i.jpg'); /* Путь к вашему изображению */
+            background-size: cover; /* Изображение будет растягиваться на весь экран */
+            background-position: center center; /* Центрирует изображение */
+            background-repeat: no-repeat; /* Избегает повторения изображения */
+            filter: blur(8px); /* Применяем блюр */
+            z-index: -1; /* Убираем фон на задний план */
+        }
+
+        /* Контейнер с текстом */
         .container {
-            background-color: white;
+            background-color: rgba(255, 255, 255, 0.8); /* Полупрозрачный фон для текста */
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
             width: 80%;
             max-width: 800px;
             text-align: center;
+            z-index: 1; /* Убедитесь, что контейнер сверху */
+            position: relative; /* Чтобы контейнер был над фоном */
         }
+
         h1 {
-            color: #2c3e50;
+            color: #582d61;
         }
+
         p {
             font-size: 1.2em;
             margin-top: 20px;
             font-style: italic;
-            color: #34495e;
+            color: #57345e;
         }
+
         .quote {
-            font-size: 1.5em;
-            color: #e74c3c;
+            font-style: italic;
+            font-size: 1.6em;
+            color: #e73c3c;
             margin: 20px 0;
         }
+
         iframe {
             width: 100%;
             height: 400px;
@@ -46,13 +70,11 @@
     </style>
 </head>
 <body>
-
+    <div class="background"></div> <!-- Слой с фоновым изображением и блюром -->
     <div class="container">
         <h1>Цитата из фильма "Форрест Гамп"</h1>
-        <p class="quote">"Я не очень умный, но я знаю, что такое любовь." - Форрест Гамп</p>
-        <!-- Вставка видео с YouTube -->
+        <p class="quote">"Может я не самый умный, но я знаю, что такое любовь." - Форрест Гамп</p>
         <iframe src="https://www.youtube.com/embed/yQF41FuY9AI?start=35" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
-
 </body>
 </html>
